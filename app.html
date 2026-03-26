@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Dental Care — Premium Dental Clinic in Rajkot</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #020b18;
+    color: #e8f4ff;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ===== CSS VARIABLES ===== */
+  :root {
+    --blue-primary: #0ea5e9;
+    --blue-deep: #0369a1;
+    --blue-glow: #38bdf8;
+    --blue-ultra: #7dd3fc;
+    --bg-dark: #020b18;
+    --bg-card: rgba(14, 28, 50, 0.7);
+    --glass: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.1);
+    --white: #ffffff;
+    --text-muted: #94a3b8;
+    --gold: #f59e0b;
+    --gradient-hero: linear-gradient(135deg, #020b18 0%, #041528 40%, #071e36 100%);
+    --gradient-blue: linear-gradient(135deg, #0ea5e9, #0369a1);
+    --gradient-glow: linear-gradient(135deg, #38bdf8, #0ea5e9, #6366f1);
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #020b18; }
+  ::-webkit-scrollbar-thumb { background: var(--blue-primary); border-radius: 3px; }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 18px 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(2, 11, 24, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(14, 165, 233, 0.15);
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    padding: 12px 6%;
+    background: rgba(2, 11, 24, 0.97);
+    box-shadow: 0 4px 30px rgba(14, 165, 233, 0.15);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: var(--gradient-blue);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .logo:hover .logo-icon {
+    transform: rotate(-8deg) scale(1.1);
+    box-shadow: 0 0 35px rgba(14, 165, 233, 0.7);
+  }
+  .logo-text { display: flex; flex-direction: column; }
+  .logo-name {
+    font-size: 1.1rem; font-weight: 800; color: #fff;
+    letter-spacing: 0.5px; line-height: 1.1;
+  }
+  .logo-sub { font-size: 0.65rem; color: var(--blue-ultra); letter-spacing: 2px; text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: #94a3b8; text-decoration: none; font-size: 0.88rem;
+    font-weight: 500; letter-spacing: 0.5px;
+    transition: color 0.3s; position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--gradient-blue);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--blue-primary); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--gradient-blue);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+    transition: all 0.3s ease !important;
+  }
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 35px rgba(14, 165, 233, 0.7) !important;
+  }
+  .nav-cta::after { display: none !important; }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    width: 26px; height: 2px;
+    background: var(--blue-primary);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ===== HERO ===== */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 6% 80px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: var(--gradient-hero);
+    z-index: 0;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(14, 165, 233, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+  }
+
+  /* Grid lines */
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(14, 165, 233, 0.8) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 165, 233, 0.8) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    flex: 1; max-width: 580px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 50px;
+    padding: 8px 18px; margin-bottom: 32px;
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--blue-ultra); letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  .badge-dot {
+    width: 7px; height: 7px;
+    background: #22c55e; border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800; line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s 0.15s ease both;
+  }
+  .hero-title span {
+    background: var(--gradient-glow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem; color: var(--text-muted);
+    line-height: 1.75; margin-bottom: 44px;
+    max-width: 480px;
+    animation: fadeInUp 0.8s 0.3s ease both;
+  }
+
+  .hero-btns {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeInUp 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 34px;
+    background: var(--gradient-blue);
+    color: #fff; font-weight: 700; font-size: 0.95rem;
+    border-radius: 50px; border: none; cursor: pointer;
+    text-decoration: none;
+    position: relative; overflow: hidden;
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.45), 0 8px 25px rgba(14,165,233,0.2);
+    transition: all 0.35s ease;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 50px rgba(14, 165, 233, 0.7), 0 12px 35px rgba(14,165,233,0.3);
+  }
+  .btn-primary:hover::before { opacity: 1; }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 30px;
+    background: rgba(37, 211, 102, 0.12);
+    border: 1.5px solid rgba(37, 211, 102, 0.35);
+    color: #25d366; font-weight: 700; font-size: 0.95rem;
+    border-radius: 50px; cursor: pointer;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    letter-spacing: 0.3px;
+  }
+  .btn-whatsapp:hover {
+    background: rgba(37, 211, 102, 0.2);
+    border-color: #25d366;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.35);
+  }
+
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 56px;
+    animation: fadeInUp 0.8s 0.6s ease both;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-num {
+    font-size: 2rem; font-weight: 800;
+    background: var(--gradient-glow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ===== 3D TOOTH VISUAL ===== */
+  .hero-visual {
+    position: relative; z-index: 2;
+    flex: 1; display: flex; justify-content: center; align-items: center;
+    animation: fadeInRight 1s 0.3s ease both;
+  }
+
+  .scene-3d {
+    width: 420px; height: 420px;
+    perspective: 900px;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(14, 165, 233, 0.25);
+    animation: orbit 12s linear infinite;
+  }
+  .orbit-ring:nth-child(1) { width: 360px; height: 360px; animation-duration: 16s; }
+  .orbit-ring:nth-child(2) { width: 280px; height: 280px; animation-duration: 10s; animation-direction: reverse; border-color: rgba(99,102,241,0.2); }
+  .orbit-ring:nth-child(3) { width: 200px; height: 200px; animation-duration: 7s; border-color: rgba(56, 189, 248, 0.3); }
+
+  .orbit-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue-primary);
+    top: -4px; left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px var(--blue-primary);
+  }
+
+  .tooth-3d-wrap {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: float3d 6s ease-in-out infinite;
+  }
+
+  @keyframes float3d {
+    0%   { transform: rotateX(15deg) rotateY(-20deg) translateY(0px); }
+    33%  { transform: rotateX(8deg)  rotateY(10deg)  translateY(-18px); }
+    66%  { transform: rotateX(20deg) rotateY(5deg)   translateY(-8px); }
+    100% { transform: rotateX(15deg) rotateY(-20deg) translateY(0px); }
+  }
+
+  .tooth-svg-container {
+    width: 160px; height: 180px;
+    filter: drop-shadow(0 0 30px rgba(14, 165, 233, 0.6)) drop-shadow(0 0 60px rgba(14, 165, 233, 0.3));
+  }
+
+  /* Floating micro particles */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--blue-primary);
+    animation: floatParticle 4s ease-in-out infinite;
+    opacity: 0.6;
+  }
+  .particle:nth-child(1)  { width:6px;  height:6px;  top:10%;  left:15%;  animation-delay:0s;   animation-duration:4.5s; }
+  .particle:nth-child(2)  { width:4px;  height:4px;  top:25%;  right:12%; animation-delay:0.8s; animation-duration:3.8s; background:#6366f1; }
+  .particle:nth-child(3)  { width:8px;  height:8px;  bottom:20%; left:20%;  animation-delay:1.5s; animation-duration:5s; }
+  .particle:nth-child(4)  { width:5px;  height:5px;  bottom:30%; right:18%; animation-delay:2.2s; animation-duration:4.2s; background:#38bdf8; }
+  .particle:nth-child(5)  { width:3px;  height:3px;  top:55%;  left:8%;   animation-delay:0.4s; animation-duration:3.5s; background:#a78bfa; }
+  .particle:nth-child(6)  { width:7px;  height:7px;  top:65%;  right:8%;  animation-delay:1.8s; animation-duration:5.5s; }
+
+  @keyframes floatParticle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50%       { transform: translateY(-20px) scale(1.2); opacity: 1; }
+  }
+
+  /* Glass info cards floating around tooth */
+  .float-card {
+    position: absolute;
+    background: rgba(14, 28, 50, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 10px;
+    white-space: nowrap;
+    animation: floatCard 5s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(14,165,233,0.1);
+  }
+  .float-card:nth-child(1) { top: 12%; left: -10%; animation-delay: 0s; }
+  .float-card:nth-child(2) { bottom: 18%; right: -8%; animation-delay: 1.5s; }
+  .float-card:nth-child(3) { top: 55%; left: -15%; animation-delay: 0.8s; }
+
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
+  }
+  .fc-icon {
+    width: 34px; height: 34px;
+    background: var(--gradient-blue);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .fc-text { display: flex; flex-direction: column; }
+  .fc-num { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1; }
+  .fc-lab { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ===== SECTIONS SHARED ===== */
+  section { padding: 100px 6%; position: relative; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    border-radius: 50px; padding: 6px 16px;
+    font-size: 0.72rem; font-weight: 700;
+    color: var(--blue-ultra); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 18px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    font-weight: 800; line-height: 1.15;
+    margin-bottom: 16px; color: #fff;
+  }
+  .section-title span {
+    background: var(--gradient-glow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 520px; line-height: 1.75; margin-bottom: 64px; }
+
+  /* Fade-in animation class */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== SERVICES ===== */
+  #services { background: linear-gradient(180deg, #020b18 0%, #041528 100%); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 36px 30px;
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    transform: perspective(800px) rotateX(0) rotateY(0);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--gradient-blue);
+    opacity: 0; transition: opacity 0.4s;
+    border-radius: 24px;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+    transition: left 0.6s ease;
+  }
+  .service-card:hover::after { left: 100%; }
+  .service-card:hover {
+    transform: perspective(800px) rotateX(-5deg) rotateY(5deg) translateY(-12px);
+    border-color: rgba(14, 165, 233, 0.45);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(14,165,233,0.2);
+  }
+  .service-card:hover::before { opacity: 0.05; }
+
+  .service-icon-wrap {
+    width: 64px; height: 64px;
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; margin-bottom: 22px;
+    transition: all 0.4s ease;
+    position: relative; z-index: 1;
+  }
+  .service-card:hover .service-icon-wrap {
+    background: var(--gradient-blue);
+    border-color: transparent;
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 0 30px rgba(14,165,233,0.5);
+  }
+  .service-name {
+    font-size: 1.15rem; font-weight: 700; color: #fff;
+    margin-bottom: 10px; position: relative; z-index: 1;
+  }
+  .service-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; position: relative; z-index: 1; }
+  .service-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 18px; font-size: 0.82rem;
+    color: var(--blue-primary); font-weight: 600;
+    text-decoration: none; transition: gap 0.3s;
+    position: relative; z-index: 1;
+  }
+  .service-card:hover .service-link { gap: 10px; }
+
+  /* ===== BEFORE/AFTER ===== */
+  #results { background: #020b18; }
+  .before-after-wrap {
+    max-width: 780px; margin: 0 auto;
+    position: relative;
+  }
+  .slider-container {
+    border-radius: 24px; overflow: hidden;
+    position: relative;
+    height: 420px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(14,165,233,0.15);
+    cursor: col-resize;
+  }
+  .slider-before, .slider-after {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .slider-before {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  }
+  .slider-after {
+    background: linear-gradient(135deg, #082844 0%, #041528 100%);
+    clip-path: inset(0 50% 0 0);
+    transition: clip-path 0.05s;
+  }
+
+  /* Rendered dental visuals */
+  .dental-visual {
+    text-align: center; padding: 40px;
+  }
+  .teeth-row {
+    display: flex; gap: 6px; justify-content: center; align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  .tooth {
+    background: linear-gradient(180deg, #d1d5db, #9ca3af);
+    border-radius: 8px 8px 12px 12px;
+    transition: all 0.3s;
+  }
+  .tooth.discolored { background: linear-gradient(180deg, #ca8a04, #92400e) !important; }
+  .tooth.broken { clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 0 100%); }
+  .tooth.white { background: linear-gradient(180deg, #f0f9ff, #e0f2fe) !important; }
+  .tooth.implant { background: linear-gradient(180deg, #bfdbfe, #93c5fd) !important; box-shadow: 0 0 15px rgba(14,165,233,0.4); }
+
+  .t1 { width: 32px; height: 70px; }
+  .t2 { width: 36px; height: 82px; }
+  .t3 { width: 40px; height: 90px; }
+  .t4 { width: 38px; height: 86px; }
+  .t5 { width: 34px; height: 78px; }
+  .t6 { width: 30px; height: 65px; }
+
+  .ba-label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .before-note { color: #f87171; }
+  .after-note  { color: #4ade80; }
+
+  .slider-handle {
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; transform: translateX(-50%);
+    width: 3px;
+    background: var(--gradient-glow);
+    z-index: 10; pointer-events: none;
+    box-shadow: 0 0 15px rgba(14,165,233,0.7);
+  }
+  .slider-btn {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: var(--gradient-blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 25px rgba(14,165,233,0.6);
+    color: #fff; font-size: 14px;
+    pointer-events: none;
+  }
+  .ba-tabs {
+    display: flex; gap: 12px; margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .ba-tab {
+    padding: 9px 22px;
+    background: rgba(14, 28, 50, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px; font-size: 0.82rem;
+    color: var(--text-muted); cursor: pointer;
+    transition: all 0.3s; font-weight: 500;
+  }
+  .ba-tab.active {
+    background: var(--gradient-blue);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(14,165,233,0.4);
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  #testimonials { background: linear-gradient(180deg, #041528 0%, #020b18 100%); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .testi-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 32px 28px;
+    position: relative; overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .testi-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient-glow);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .testi-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(14,165,233,0.3);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 30px rgba(14,165,233,0.1);
+  }
+  .testi-card:hover::before { opacity: 1; }
+
+  .testi-quote {
+    font-size: 3rem; line-height: 1;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px; font-family: 'Playfair Display', serif;
+  }
+  .testi-text {
+    font-size: 0.9rem; color: #cbd5e1; line-height: 1.75;
+    margin-bottom: 24px; font-style: italic;
+  }
+  .testi-footer { display: flex; align-items: center; gap: 14px; }
+  .testi-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--gradient-blue);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.1rem; color: #fff;
+    box-shadow: 0 0 15px rgba(14,165,233,0.4);
+    flex-shrink: 0;
+  }
+  .testi-name { font-weight: 700; color: #fff; font-size: 0.95rem; }
+  .testi-loc { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+  .testi-stars { color: var(--gold); font-size: 0.8rem; margin-left: auto; }
+
+  /* ===== PRICING ===== */
+  #pricing { background: #020b18; }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 24px;
+  }
+  .price-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 40px 32px;
+    position: relative; overflow: hidden;
+    transition: all 0.4s ease;
+    text-align: center;
+  }
+  .price-card.featured {
+    background: linear-gradient(160deg, rgba(14,41,70,0.9), rgba(7,25,47,0.9));
+    border-color: rgba(14, 165, 233, 0.45);
+    transform: scale(1.03);
+    box-shadow: 0 0 60px rgba(14,165,233,0.2), 0 30px 60px rgba(0,0,0,0.4);
+  }
+  .price-card.featured::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--gradient-glow);
+  }
+  .price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(14,165,233,0.15);
+  }
+  .price-card.featured:hover { transform: scale(1.03) translateY(-10px); }
+
+  .popular-badge {
+    display: inline-block;
+    background: var(--gradient-glow);
+    color: #fff; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 50px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(14,165,233,0.5);
+  }
+  .price-name { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .price-range {
+    font-size: 2.4rem; font-weight: 800; line-height: 1; margin: 16px 0;
+    background: var(--gradient-glow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .price-range small { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+  .price-desc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 28px; line-height: 1.6; }
+  .price-features { list-style: none; text-align: left; margin-bottom: 32px; }
+  .price-features li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.85rem; color: #cbd5e1;
+    padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .price-features .check { color: #22c55e; font-size: 0.9rem; }
+
+  /* ===== APPOINTMENT ===== */
+  #appointment { background: linear-gradient(180deg, #041528 0%, #020b18 100%); }
+  .appt-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: start;
+  }
+  .appt-info-item {
+    display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px;
+  }
+  .appt-icon {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: rgba(14,165,233,0.12);
+    border: 1px solid rgba(14,165,233,0.25);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: var(--blue-primary);
+    transition: all 0.3s;
+  }
+  .appt-info-item:hover .appt-icon {
+    background: var(--gradient-blue);
+    box-shadow: 0 0 20px rgba(14,165,233,0.4);
+    transform: scale(1.1);
+  }
+  .appt-info-text h4 { font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .appt-info-text p, .appt-info-text a {
+    font-size: 0.875rem; color: var(--text-muted);
+    text-decoration: none; transition: color 0.3s;
+    line-height: 1.6;
+  }
+  .appt-info-text a:hover { color: var(--blue-primary); }
+
+  .appt-form-wrap {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 44px 40px;
+    position: relative; overflow: hidden;
+  }
+  .appt-form-wrap::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gradient-glow);
+  }
+  .form-title { font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 28px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 0.78rem; font-weight: 600;
+    color: var(--text-muted); margin-bottom: 8px;
+    letter-spacing: 0.8px; text-transform: uppercase;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 14px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: #fff; font-size: 0.9rem; font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  .form-group select option { background: #041528; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--blue-primary);
+    background: rgba(14, 165, 233, 0.07);
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.15);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: #475569; }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .btn-submit {
+    width: 100%; padding: 16px;
+    background: var(--gradient-blue);
+    color: #fff; font-weight: 700; font-size: 1rem;
+    border: none; border-radius: 12px; cursor: pointer;
+    position: relative; overflow: hidden;
+    transition: all 0.35s ease;
+    box-shadow: 0 0 30px rgba(14,165,233,0.4);
+    letter-spacing: 0.5px;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(14,165,233,0.6), 0 12px 30px rgba(14,165,233,0.2);
+  }
+  .btn-submit::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .btn-submit:hover::after { opacity: 1; }
+
+  /* ===== MAP ===== */
+  #location { background: #020b18; }
+  .map-wrap {
+    border-radius: 24px; overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(14,165,233,0.1);
+  }
+  .map-wrap iframe { display: block; width: 100%; height: 420px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #010810;
+    border-top: 1px solid rgba(14, 165, 233, 0.12);
+    padding: 70px 6% 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 48px; margin-bottom: 60px;
+  }
+  .footer-desc {
+    font-size: 0.875rem; color: var(--text-muted);
+    line-height: 1.8; margin: 18px 0 24px;
+    max-width: 300px;
+  }
+  .footer-social { display: flex; gap: 12px; }
+  .social-btn {
+    width: 40px; height: 40px;
+    background: rgba(14,165,233,0.1);
+    border: 1px solid rgba(14,165,233,0.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue-primary); font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .social-btn:hover {
+    background: var(--gradient-blue);
+    border-color: transparent;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(14,165,233,0.4);
+  }
+  .footer-heading {
+    font-size: 0.8rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: #fff; margin-bottom: 22px;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 12px; }
+  .footer-links a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 0.875rem; transition: all 0.3s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .footer-links a:hover { color: var(--blue-primary); padding-left: 4px; }
+  .footer-links a::before { content: '›'; font-size: 1rem; opacity: 0; transition: opacity 0.3s; }
+  .footer-links a:hover::before { opacity: 1; }
+
+  .footer-contact-item {
+    display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px;
+  }
+  .fc-ico { color: var(--blue-primary); font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+  .fc-val { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+  .fc-val a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+  .fc-val a:hover { color: var(--blue-primary); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+  .footer-copy span { color: var(--blue-primary); }
+
+  /* ===== STICKY WHATSAPP ===== */
+  .wa-sticky {
+    position: fixed; bottom: 30px; right: 30px; z-index: 999;
+    text-decoration: none;
+  }
+  .wa-btn {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; color: #fff;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    animation: waPulse 2.5s infinite;
+    transition: transform 0.3s;
+  }
+  .wa-sticky:hover .wa-btn { transform: scale(1.12); }
+  @keyframes waPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+    70%  { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+  }
+  .wa-tooltip {
+    position: absolute; right: 72px; top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10,20,40,0.95);
+    border: 1px solid rgba(37,211,102,0.3);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 0.8rem; font-weight: 600; color: #25d366;
+    white-space: nowrap; pointer-events: none;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .wa-sticky:hover .wa-tooltip { opacity: 1; }
+
+  /* ===== KEYFRAMES ===== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes orbit {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
+  }
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(14,165,233,0.4); }
+    50%       { box-shadow: 0 0 40px rgba(14,165,233,0.8), 0 0 60px rgba(14,165,233,0.3); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* ===== MOBILE NAV ===== */
+  .mobile-menu {
+    display: none;
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(2,11,24,0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: #fff; font-size: 1.4rem; font-weight: 700;
+    text-decoration: none; transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--blue-primary); }
+  .close-menu {
+    position: absolute; top: 24px; right: 24px;
+    font-size: 1.8rem; cursor: pointer; color: var(--text-muted);
+    transition: color 0.3s;
+  }
+  .close-menu:hover { color: var(--blue-primary); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .hero-visual { display: none; }
+    #hero { justify-content: center; text-align: center; }
+    .hero-content { max-width: 100%; }
+    .hero-btns { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .section-sub { max-width: 100%; }
+    .appt-wrap { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 70px 5%; }
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .appt-form-wrap { padding: 30px 24px; }
+    .slider-container { height: 320px; }
+    .price-card.featured { transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <a href="#hero" class="logo">
+    <div class="logo-icon">🦷</div>
+    <div class="logo-text">
+      <span class="logo-name">Yash Dental Care</span>
+      <span class="logo-sub">Premium Clinic · Rajkot</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#appointment" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===== MOBILE MENU ===== -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close-menu" id="closeMenu">✕</span>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#results" onclick="closeMob()">Results</a>
+  <a href="#testimonials" onclick="closeMob()">Reviews</a>
+  <a href="#pricing" onclick="closeMob()">Pricing</a>
+  <a href="#appointment" onclick="closeMob()">Book Appointment</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Rajkot's Most Trusted Dental Clinic
+    </div>
+    <h1 class="hero-title">
+      Get <span>Pain-Free</span><br>
+      Dental Treatment<br>
+      in Rajkot
+    </h1>
+    <p class="hero-sub">
+      Experience world-class dentistry with cutting-edge technology, gentle care, and results that transform your smile — and your confidence.
+    </p>
+    <div class="hero-btns">
+      <a href="#appointment" class="btn-primary">
+        <i class="fas fa-calendar-check"></i> Book Appointment
+      </a>
+      <a href="https://wa.me/918401366211?text=I%20want%20to%20book%20appointment" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp Now
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-target="5000">0+</span>
+        <span class="stat-label">Happy Patients</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="12">0+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="98">0%</span>
+        <span class="stat-label">Success Rate</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D Visual -->
+  <div class="hero-visual">
+    <div class="scene-3d">
+      <!-- Orbit Rings -->
+      <div class="orbit-ring"><div class="orbit-dot"></div></div>
+      <div class="orbit-ring"><div class="orbit-dot"></div></div>
+      <div class="orbit-ring"><div class="orbit-dot"></div></div>
+
+      <!-- Floating Cards -->
+      <div class="float-card">
+        <div class="fc-icon">✨</div>
+        <div class="fc-text">
+          <span class="fc-num">Pain-Free</span>
+          <span class="fc-lab">Treatment</span>
+        </div>
+      </div>
+      <div class="float-card">
+        <div class="fc-icon">🏆</div>
+        <div class="fc-text">
+          <span class="fc-num">#1 Rated</span>
+          <span class="fc-lab">In Rajkot</span>
+        </div>
+      </div>
+      <div class="float-card">
+        <div class="fc-icon">⚡</div>
+        <div class="fc-text">
+          <span class="fc-num">Same Day</span>
+          <span class="fc-lab">Appointments</span>
+        </div>
+      </div>
+
+      <!-- Particles -->
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+
+      <!-- 3D Tooth SVG -->
+      <div class="tooth-3d-wrap">
+        <div class="tooth-svg-container">
+          <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" width="160" height="200">
+            <defs>
+              <linearGradient id="toothGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#f0f9ff"/>
+                <stop offset="40%" style="stop-color:#e0f2fe"/>
+                <stop offset="100%" style="stop-color:#bae6fd"/>
+              </linearGradient>
+              <linearGradient id="toothShade" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:0.4"/>
+                <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.1"/>
+              </linearGradient>
+              <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:0.8"/>
+                <stop offset="100%" style="stop-color:#0369a1;stop-opacity:0.8"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="softglow">
+                <feGaussianBlur stdDeviation="8" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- Glow base -->
+            <ellipse cx="80" cy="100" rx="58" ry="68" fill="url(#glowGrad)" opacity="0.15" filter="url(#softglow)"/>
+            <!-- Tooth body -->
+            <path d="M 38 70 
+                     C 30 40, 45 18, 62 14 
+                     C 70 12, 76 16, 80 20 
+                     C 84 16, 90 12, 98 14 
+                     C 115 18, 130 40, 122 70 
+                     C 118 90, 115 105, 112 125 
+                     C 109 148, 106 165, 100 178 
+                     C 96 188, 88 192, 80 192 
+                     C 72 192, 64 188, 60 178 
+                     C 54 165, 51 148, 48 125 
+                     C 45 105, 42 90, 38 70 Z"
+                  fill="url(#toothGrad)" filter="url(#glow)"/>
+            <!-- Shading -->
+            <path d="M 38 70 
+                     C 30 40, 45 18, 62 14 
+                     C 70 12, 76 16, 80 20 
+                     C 84 16, 90 12, 98 14 
+                     C 115 18, 130 40, 122 70 
+                     C 118 90, 115 105, 112 125 
+                     C 109 148, 106 165, 100 178 
+                     C 96 188, 88 192, 80 192 
+                     C 72 192, 64 188, 60 178 
+                     C 54 165, 51 148, 48 125 
+                     C 45 105, 42 90, 38 70 Z"
+                  fill="url(#toothShade)"/>
+            <!-- Highlight -->
+            <path d="M 58 22 C 52 35, 48 52, 50 68 C 56 58, 62 42, 68 30 Z"
+                  fill="white" opacity="0.55"/>
+            <path d="M 80 20 C 84 28, 86 38, 84 50 C 82 40, 80 30, 80 20 Z"
+                  fill="white" opacity="0.35"/>
+            <!-- Center groove -->
+            <path d="M 80 30 Q 80 100, 80 185" stroke="#93c5fd" stroke-width="1" fill="none" opacity="0.3"/>
+            <!-- Blue accent dots -->
+            <circle cx="65" cy="50" r="3" fill="#38bdf8" opacity="0.6"/>
+            <circle cx="96" cy="48" r="2.5" fill="#7dd3fc" opacity="0.5"/>
+            <circle cx="80" cy="155" r="2" fill="#38bdf8" opacity="0.4"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="section-tag"><i class="fas fa-star"></i> Our Services</div>
+  <h2 class="section-title">World-Class <span>Dental Treatments</span></h2>
+  <p class="section-sub">Comprehensive dental care with advanced technology — designed for your comfort and long-term oral health.</p>
+
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-icon-wrap">🦷</div>
+      <div class="service-name">Root Canal Treatment</div>
+      <p class="service-desc">Advanced endodontic therapy with modern rotary techniques. Completely painless with same-day relief from infection and severe toothache.</p>
+      <a href="#appointment" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.1s">
+      <div class="service-icon-wrap">😁</div>
+      <div class="service-name">Orthodontic Braces</div>
+      <p class="service-desc">Metal, ceramic, and invisible aligners to perfect your smile alignment. Personalised treatment plans for all ages for beautiful, straight teeth.</p>
+      <a href="#appointment" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.2s">
+      <div class="service-icon-wrap">✨</div>
+      <div class="service-name">Teeth Whitening</div>
+      <p class="service-desc">Professional-grade laser whitening that delivers 8–10 shades brighter in a single session. Safe, fast, and long-lasting results you'll love.</p>
+      <a href="#appointment" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.3s">
+      <div class="service-icon-wrap">🔩</div>
+      <div class="service-name">Dental Implants</div>
+      <p class="service-desc">Titanium implants that look, feel, and function like natural teeth. Permanent solution for missing teeth with a lifetime guarantee on the fixture.</p>
+      <a href="#appointment" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.4s">
+      <div class="service-icon-wrap">💎</div>
+      <div class="service-name">Veneers & Smile Design</div>
+      <p class="service-desc">Ultra-thin porcelain veneers and full smile makeovers crafted by aesthetic experts. Transform your smile with Hollywood-worthy precision.</p>
+      <a href="#appointment" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:0.5s">
+      <div class="service-icon-wrap">🛡️</div>
+      <div class="service-name">Preventive Dentistry</div>
+      <p class="service-desc">Regular cleanings, scaling, X-rays and oral health checkups. Prevent problems before they start with our comprehensive wellness program.</p>
+      <a href="#appointment" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEFORE/AFTER ===== -->
+<section id="results">
+  <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+    <div class="section-tag"><i class="fas fa-magic"></i> Transformations</div>
+    <h2 class="section-title">Real <span>Before & After</span> Results</h2>
+    <p class="section-sub" style="text-align:center;">Drag the slider to reveal stunning smile transformations from our patients.</p>
+  </div>
+
+  <div class="ba-tabs fade-up" style="justify-content:center;">
+    <div class="ba-tab active" onclick="switchCase(this, 'whitening')">Teeth Whitening</div>
+    <div class="ba-tab" onclick="switchCase(this, 'implant')">Dental Implant</div>
+    <div class="ba-tab" onclick="switchCase(this, 'braces')">Braces</div>
+  </div>
+
+  <div class="before-after-wrap fade-up">
+    <div class="slider-container" id="baSlider">
+      <div class="slider-before" id="beforePanel">
+        <div class="dental-visual" id="beforeVisual">
+          <!-- Whitening before -->
+          <div class="teeth-row">
+            <div class="tooth t1 discolored"></div>
+            <div class="tooth t2 discolored"></div>
+            <div class="tooth t3 discolored broken"></div>
+            <div class="tooth t4 discolored"></div>
+            <div class="tooth t5 discolored"></div>
+            <div class="tooth t6 discolored"></div>
+          </div>
+          <p class="ba-label before-note">⚠ Before Treatment</p>
+          <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Discoloured & stained enamel</p>
+        </div>
+      </div>
+      <div class="slider-after" id="afterPanel">
+        <div class="dental-visual" id="afterVisual">
+          <div class="teeth-row">
+            <div class="tooth t1 white"></div>
+            <div class="tooth t2 white"></div>
+            <div class="tooth t3 white"></div>
+            <div class="tooth t4 white"></div>
+            <div class="tooth t5 white"></div>
+            <div class="tooth t6 white"></div>
+          </div>
+          <p class="ba-label after-note">✓ After Treatment</p>
+          <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Radiant, white & healthy</p>
+        </div>
+      </div>
+      <div class="slider-handle" id="sliderHandle">
+        <div class="slider-btn">
+          <i class="fas fa-arrows-left-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+    <div class="section-tag"><i class="fas fa-heart"></i> Patient Stories</div>
+    <h2 class="section-title">What Our <span>Patients Say</span></h2>
+    <p class="section-sub" style="text-align:center;">Real experiences from real people who trusted us with their smiles.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testi-card fade-up">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I was terrified of dentists my whole life. The team at Yash Dental made my root canal completely painless. I couldn't believe it! The clinic is spotlessly clean and the doctor's skill is exceptional.</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-name">Ravi Mehta</div>
+          <div class="testi-loc">Rajkot, Gujarat</div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testi-card fade-up" style="transition-delay:0.1s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">My daughter got her braces here and the result is mind-blowing. The entire treatment was handled with so much care and professionalism. We've been coming for 2 years and every visit is pleasant.</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">Priya Shah</div>
+          <div class="testi-loc">Gondal Road, Rajkot</div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testi-card fade-up" style="transition-delay:0.2s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Got my dental implant done here. Honestly, I was sceptical, but it looks and feels exactly like a real tooth. The procedure was smooth and the follow-up care was thorough. Highly recommend!</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Arjun Patel</div>
+          <div class="testi-loc">150 Ft Ring Road, Rajkot</div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testi-card fade-up" style="transition-delay:0.3s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The teeth whitening results were absolutely incredible! 8 shades whiter in just one sitting. Friends are asking what I did differently. The clinic is ultra modern and the staff is so warm and welcoming.</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-name">Sheetal Joshi</div>
+          <div class="testi-loc">Kalavad Road, Rajkot</div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testi-card fade-up" style="transition-delay:0.4s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Best dental experience of my life. Transparent pricing, no hidden charges, and results that exceeded my expectations. The smile design consultation was eye-opening. I wish I had come here sooner!</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">M</div>
+        <div>
+          <div class="testi-name">Manish Trivedi</div>
+          <div class="testi-loc">University Road, Rajkot</div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing">
+  <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+    <div class="section-tag"><i class="fas fa-tag"></i> Transparent Pricing</div>
+    <h2 class="section-title">Honest <span>Treatment Costs</span></h2>
+    <p class="section-sub" style="text-align:center;">No hidden charges. No surprises. Just straightforward, transparent pricing for premium dental care.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card fade-up">
+      <div class="price-name">🦷 Root Canal</div>
+      <div class="price-range">₹2,500<small>–₹5,000</small></div>
+      <p class="price-desc">Per tooth, includes X-ray and consultation</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Advanced rotary technique</li>
+        <li><span class="check">✓</span> Painless procedure</li>
+        <li><span class="check">✓</span> Same-day treatment</li>
+        <li><span class="check">✓</span> Follow-up included</li>
+      </ul>
+      <a href="#appointment" class="btn-primary" style="display:flex;justify-content:center;">Book Now</a>
+    </div>
+
+    <div class="price-card featured fade-up" style="transition-delay:0.1s">
+      <div class="popular-badge">Most Popular</div>
+      <div class="price-name">😁 Braces</div>
+      <div class="price-range">₹18,000<small>–₹35,000</small></div>
+      <p class="price-desc">Complete treatment including all adjustments</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Metal, ceramic & invisible options</li>
+        <li><span class="check">✓</span> Free consultation & X-ray</li>
+        <li><span class="check">✓</span> Monthly adjustment visits</li>
+        <li><span class="check">✓</span> Retainer included</li>
+      </ul>
+      <a href="#appointment" class="btn-primary" style="display:flex;justify-content:center;">Book Now</a>
+    </div>
+
+    <div class="price-card fade-up" style="transition-delay:0.2s">
+      <div class="price-name">✨ Whitening</div>
+      <div class="price-range">₹3,500<small>–₹8,000</small></div>
+      <p class="price-desc">Professional laser whitening per session</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> 8–10 shades brighter</li>
+        <li><span class="check">✓</span> Single session results</li>
+        <li><span class="check">✓</span> Enamel-safe treatment</li>
+        <li><span class="check">✓</span> Take-home kit included</li>
+      </ul>
+      <a href="#appointment" class="btn-primary" style="display:flex;justify-content:center;">Book Now</a>
+    </div>
+
+    <div class="price-card fade-up" style="transition-delay:0.3s">
+      <div class="price-name">🔩 Implants</div>
+      <div class="price-range">₹25,000<small>–₹55,000</small></div>
+      <p class="price-desc">Per implant, includes crown & placement</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Premium titanium fixtures</li>
+        <li><span class="check">✓</span> Lifetime fixture warranty</li>
+        <li><span class="check">✓</span> 3D imaging & planning</li>
+        <li><span class="check">✓</span> Post-op care included</li>
+      </ul>
+      <a href="#appointment" class="btn-primary" style="display:flex;justify-content:center;">Book Now</a>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); font-size:0.82rem; margin-top:32px;">
+    * EMI options available. Prices may vary based on case complexity. Book a free consultation for a personalised quote.
+  </p>
+</section>
+
+<!-- ===== APPOINTMENT ===== -->
+<section id="appointment">
+  <div class="appt-wrap">
+    <div class="fade-up">
+      <div class="section-tag"><i class="fas fa-calendar"></i> Book Appointment</div>
+      <h2 class="section-title">Ready for Your <span>Dream Smile?</span></h2>
+      <p class="section-sub">Book your appointment today and take the first step towards a healthier, more confident smile.</p>
+
+      <div class="appt-info-item">
+        <div class="appt-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="appt-info-text">
+          <h4>Visit Our Clinic</h4>
+          <p>Yash Dental Care, Rajkot, Gujarat, India</p>
+        </div>
+      </div>
+      <div class="appt-info-item">
+        <div class="appt-icon"><i class="fas fa-phone"></i></div>
+        <div class="appt-info-text">
+          <h4>Call Us</h4>
+          <a href="tel:8401366211">+91 84013 66211</a>
+        </div>
+      </div>
+      <div class="appt-info-item">
+        <div class="appt-icon"><i class="fas fa-envelope"></i></div>
+        <div class="appt-info-text">
+          <h4>Email Us</h4>
+          <a href="mailto:yashpratapsengar02@gmail.com">yashpratapsengar02@gmail.com</a>
+        </div>
+      </div>
+      <div class="appt-info-item">
+        <div class="appt-icon"><i class="fas fa-clock"></i></div>
+        <div class="appt-info-text">
+          <h4>Clinic Hours</h4>
+          <p>Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 2:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="appt-form-wrap fade-up" style="transition-delay:0.2s">
+      <div class="form-title">Book Your Free Consultation</div>
+      <form onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="e.g. Ravi Mehta" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="form-group">
+          <label>Dental Concern</label>
+          <select required>
+            <option value="" disabled selected>Select your problem</option>
+            <option>Root Canal</option>
+            <option>Braces / Alignment</option>
+            <option>Teeth Whitening</option>
+            <option>Dental Implant</option>
+            <option>Tooth Pain</option>
+            <option>Smile Design</option>
+            <option>Routine Checkup</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Additional Message (optional)</label>
+          <textarea placeholder="Describe your concern or ask a question..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-calendar-check"></i> &nbsp;Confirm Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section id="location" style="padding-bottom: 0;">
+  <div style="text-align:center; display:flex; flex-direction:column; align-items:center; margin-bottom:48px;">
+    <div class="section-tag"><i class="fas fa-map"></i> Find Us</div>
+    <h2 class="section-title">We're Located in <span>Rajkot</span></h2>
+  </div>
+  <div class="map-wrap fade-up">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119068.05890580487!2d70.7387282!3d22.3038945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca5b43b2323d%3A0x7eda4d8e7e5bc08c!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000"
+      style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="#hero" class="logo">
+        <div class="logo-icon">🦷</div>
+        <div class="logo-text">
+          <span class="logo-name">Yash Dental Care</span>
+          <span class="logo-sub">Premium Clinic · Rajkot</span>
+        </div>
+      </a>
+      <p class="footer-desc">Delivering world-class dental care to Rajkot with compassion, advanced technology, and results that last a lifetime.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/918401366211" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://youtube.com" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Treatments</div>
+      <ul class="footer-links">
+        <li><a href="#services">Root Canal</a></li>
+        <li><a href="#services">Orthodontic Braces</a></li>
+        <li><a href="#services">Teeth Whitening</a></li>
+        <li><a href="#services">Dental Implants</a></li>
+        <li><a href="#services">Veneers</a></li>
+        <li><a href="#services">Preventive Care</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-contact-item">
+        <span class="fc-ico"><i class="fas fa-map-marker-alt"></i></span>
+        <span class="fc-val">Yash Dental Care,<br>Rajkot, Gujarat, India</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-ico"><i class="fas fa-phone"></i></span>
+        <span class="fc-val"><a href="tel:8401366211">+91 84013 66211</a></span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-ico"><i class="fas fa-envelope"></i></span>
+        <span class="fc-val"><a href="mailto:yashpratapsengar02@gmail.com">yashpratapsengar02<br>@gmail.com</a></span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-ico"><i class="fas fa-clock"></i></span>
+        <span class="fc-val">Mon–Sat: 9AM – 8PM<br>Sun: 10AM – 2PM</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 <span>Yash Dental Care</span>. All rights reserved.</p>
+    <p class="footer-copy">Designed with ❤️ for <span>Rajkot</span></p>
+  </div>
+</footer>
+
+<!-- ===== STICKY WHATSAPP ===== -->
+<a href="https://wa.me/918401366211?text=I%20want%20to%20book%20appointment" target="_blank" class="wa-sticky">
+  <div class="wa-tooltip">Chat with us!</div>
+  <div class="wa-btn"><i class="fab fa-whatsapp"></i></div>
+</a>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ===== HAMBURGER =====
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu  = document.getElementById('closeMenu');
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+closeMenu.addEventListener('click', closeMob);
+function closeMob() { mobileMenu.classList.remove('open'); }
+
+// ===== FADE-IN ON SCROLL =====
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+// ===== COUNTER ANIMATION =====
+const counters = document.querySelectorAll('.stat-num');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.done) {
+      e.target.dataset.done = true;
+      const target = parseInt(e.target.dataset.target);
+      const suffix = e.target.textContent.replace(/[0-9]/g, '');
+      let current = 0;
+      const step = Math.ceil(target / 60);
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        e.target.textContent = current.toLocaleString() + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 28);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// ===== BEFORE / AFTER SLIDER =====
+const slider      = document.getElementById('baSlider');
+const afterPanel  = document.getElementById('afterPanel');
+const handle      = document.getElementById('sliderHandle');
+let isDragging    = false;
+let sliderPct     = 50;
+
+function updateSlider(pct) {
+  sliderPct = Math.max(2, Math.min(98, pct));
+  afterPanel.style.clipPath   = `inset(0 ${100 - sliderPct}% 0 0)`;
+  handle.style.left            = sliderPct + '%';
+}
+updateSlider(50);
+
+function getSliderPct(e) {
+  const rect = slider.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  return ((clientX - rect.left) / rect.width) * 100;
+}
+slider.addEventListener('mousedown',  e => { isDragging = true; updateSlider(getSliderPct(e)); });
+slider.addEventListener('touchstart', e => { isDragging = true; updateSlider(getSliderPct(e)); }, {passive:true});
+window.addEventListener('mousemove',  e => { if (isDragging) updateSlider(getSliderPct(e)); });
+window.addEventListener('touchmove',  e => { if (isDragging) updateSlider(getSliderPct(e)); }, {passive:true});
+window.addEventListener('mouseup',   () => isDragging = false);
+window.addEventListener('touchend',  () => isDragging = false);
+
+// ===== BEFORE/AFTER TAB SWITCH =====
+const cases = {
+  whitening: {
+    beforeHTML: `<div class="teeth-row">
+      <div class="tooth t1 discolored"></div><div class="tooth t2 discolored"></div>
+      <div class="tooth t3 discolored broken"></div><div class="tooth t4 discolored"></div>
+      <div class="tooth t5 discolored"></div><div class="tooth t6 discolored"></div></div>
+      <p class="ba-label before-note">⚠ Before Treatment</p>
+      <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Discoloured & stained enamel</p>`,
+    afterHTML: `<div class="teeth-row">
+      <div class="tooth t1 white"></div><div class="tooth t2 white"></div>
+      <div class="tooth t3 white"></div><div class="tooth t4 white"></div>
+      <div class="tooth t5 white"></div><div class="tooth t6 white"></div></div>
+      <p class="ba-label after-note">✓ After Treatment</p>
+      <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Radiant, white & healthy</p>`
+  },
+  implant: {
+    beforeHTML: `<div class="teeth-row">
+      <div class="tooth t1"></div><div class="tooth t2"></div>
+      <div style="width:44px;height:90px;border:2px dashed #f87171;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#f87171;font-size:1.5rem">✕</div>
+      <div class="tooth t4"></div><div class="tooth t5"></div><div class="tooth t6"></div></div>
+      <p class="ba-label before-note">⚠ Before — Missing Tooth</p>
+      <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Gap from extracted tooth</p>`,
+    afterHTML: `<div class="teeth-row">
+      <div class="tooth t1 white"></div><div class="tooth t2 white"></div>
+      <div class="tooth t3 implant"></div>
+      <div class="tooth t4 white"></div><div class="tooth t5 white"></div><div class="tooth t6 white"></div></div>
+      <p class="ba-label after-note">✓ After — Implant Placed</p>
+      <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Natural-looking implant crown</p>`
+  },
+  braces: {
+    beforeHTML: `<div class="teeth-row" style="gap:2px">
+      <div class="tooth t1" style="transform:rotate(-12deg);background:linear-gradient(#d1d5db,#9ca3af)"></div>
+      <div class="tooth t2" style="transform:rotate(8deg) translateX(-4px)"></div>
+      <div class="tooth t3" style="transform:rotate(-6deg) translateX(4px)"></div>
+      <div class="tooth t4" style="transform:rotate(10deg)"></div>
+      <div class="tooth t5" style="transform:rotate(-8deg)"></div>
+      <div class="tooth t6" style="transform:rotate(5deg)"></div></div>
+      <p class="ba-label before-note">⚠ Before — Misaligned Teeth</p>
+      <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Crooked & overlapping teeth</p>`,
+    afterHTML: `<div class="teeth-row">
+      <div class="tooth t1 white"></div><div class="tooth t2 white"></div>
+      <div class="tooth t3 white"></div><div class="tooth t4 white"></div>
+      <div class="tooth t5 white"></div><div class="tooth t6 white"></div></div>
+      <p class="ba-label after-note">✓ After — Perfect Alignment</p>
+      <p style="color:#94a3b8;font-size:0.8rem;margin-top:8px;">Straight, even, confident smile</p>`
+  }
+};
+
+function switchCase(tab, type) {
+  document.querySelectorAll('.ba-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById('beforeVisual').innerHTML = cases[type].beforeHTML;
+  document.getElementById('afterVisual').innerHTML  = cases[type].afterHTML;
+  updateSlider(50);
+}
+
+// ===== 3D CARD TILT =====
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 18;
+    const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 18;
+    card.style.transform = `perspective(800px) rotateX(${-y}deg) rotateY(${x}deg) translateY(-12px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// ===== FORM SUBMIT =====
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-submit');
+  btn.innerHTML = '<i class="fas fa-check"></i> &nbsp;Request Sent! We\'ll call you soon.';
+  btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+  btn.style.boxShadow  = '0 0 30px rgba(34,197,94,0.5)';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fas fa-calendar-check"></i> &nbsp;Confirm Appointment';
+    btn.style.background = '';
+    btn.style.boxShadow  = '';
+    e.target.reset();
+  }, 4000);
+}
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
