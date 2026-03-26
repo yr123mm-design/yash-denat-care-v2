@@ -1,0 +1,35 @@
+# Jekyll Configuration for GitHub Pages
+
+# Set the title of the site
+title: "Yash Denat Care"
+
+# URL of the site
+url: "http://yash-denat-care.github.io"
+
+# Set the base URL if not the root
+baseurl: ""
+
+# Set the timezone
+timezone: "UTC"
+
+# Set your theme here
+theme: "minima"
+
+# Collections example (if needed)
+# collections:
+#   my_collection:
+#     output: true
+
+# Exclude files and directories (optional)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+# Plugins (if required)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Social Media Links (optional)
+
+# Add your social links here
